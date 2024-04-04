@@ -1,0 +1,3 @@
+{:paths ["src"]
+ :aliases {:runs {:extra-paths ["dev"]
+                  :main-opts ["-m" "com.biffweb.cljrun" "tasks/tasks"]}}}
