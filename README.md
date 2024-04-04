@@ -44,9 +44,12 @@ with something like this in it:
 Then stick this in your `deps.edn` file:
 
 ```clojure
-:aliases {:run {:extra-deps {com.biffweb/cljrun {:mvn/version ...}} ; TODO publish to clojars
-                :extra-paths ["dev"]
-                :main-opts ["-m" "com.biffweb.cljrun" "tasks/tasks"]}}
+:aliases
+{:run {:extra-deps {com.biffweb/cljrun {:git/url "https://github.com/jacobobryant/cljrun"
+                                        :git/tag "v1.0.0"
+                                        :git/sha "4f9bb38"}}
+       :extra-paths ["dev"]
+       :main-opts ["-m" "com.biffweb.cljrun" "tasks/tasks"]}}
 ```
 
 Now you can invoke the `hello` task with `clj -M:run hello`. Run `clj -M:run --help` to
@@ -146,14 +149,13 @@ The simplest thing to do is just have the tasks call each other directly:
   (css "--minify")
   ...)
 
-
 (def tasks
   {"css" #'css
    "deploy" #'deploy})
 ```
 
-But if that isn't quite enough indirection for you, cljrun provides a `run-task` function
-that does almost the same thing:
+If that isn't quite enough indirection for you, cljrun provides a `run-task` function that
+does almost the same thing:
 
 ```clojure
 (ns tasks
