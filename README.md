@@ -4,10 +4,10 @@ A lightweight task runner for Clojure.
 
 Similar to [Babashka Tasks](https://book.babashka.org/#tasks), but doesn't require
 anything to be installed besides `clj`. I made it because, based on feedback from some
-Biff users, it turns out not everyone already has Babashka installed or even knows what it
-is. Given Biff's focus on keeping things streamlined, I thought eliminating the extra
-dependency would be worthwhile. The extra startup time for clj-based tasks has turned out
-to not matter in my experience (more on that below).
+[Biff](https://biffweb.com) users, it turns out not everyone already has Babashka
+installed or even knows what it is. Given Biff's focus on keeping things streamlined, I
+thought eliminating the extra dependency would be worthwhile. The extra startup time for
+clj-based tasks has turned out to not matter in my experience (more on that below).
 
 There isn't much code in this library&mdash;only about 60 lines. It's more about the
 *approach*. cljrun makes it easy to provide collections of tasks that can be shared
